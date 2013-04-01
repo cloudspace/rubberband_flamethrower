@@ -46,7 +46,7 @@ A few samples from the run show that we are inserting anywhere from 6,000 to 13,
 
 Running the insert script and retriever script during the time period being sampled by the retriever for a short period did not seem to greatly affect the number, though running the retriever for a long duration did greatly degrade the performance of the inserts and increased load average on the box.
 
-Running the retriever on a sample period of an hour (and one second) instead of one minute (and one second) we still see a fairly large variance in the number being inserted per hour and so far have only seen it increasing in time. This is a very small sample and too breif and investigation to draw any real conclusions yet.
+Running the retriever on a sample period of an hour (and one second) instead of one minute (and one second) we still see a fairly large variance in the number being inserted per hour and so far have only seen it increasing in time. This is a very small sample and too brief and investigation to draw any real conclusions yet.
 
 	{"query":{"range":{"postDate":{"from":"20130401T20:18:43","to":"20130401T21:18:43"}}}}
 	377978

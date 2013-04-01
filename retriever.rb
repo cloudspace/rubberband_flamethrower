@@ -9,6 +9,6 @@ while true do
   puts query
 
   response = HTTParty.get("http://localhost:9200/twitter/tweet/_search", body: query)
-  puts response.body
-
+  parsed = JSON.parse(response.body)
+  puts parsed["hits"]["total"]
 end

@@ -1,19 +1,23 @@
 Rubberband Flamethrower
 =======================
-Rubberband Flamethrower is a collection of scripts for dealing with faked Elastic Search data. The main script "inserter.rb" is a script for rapidly inserting test data into Elastic Search.  The script "retriever.rb" also runs in a constant loop doing a search on the tweets for all within the date range between 2 and 3 minutes ago and reports the number of objects found.  This can be used to easily approximate the maximum speed obtainable for inserting to a local Elastic Search index for a given AWS box size.
+Rubberband Flamethrower is a collection of scripts for dealing with faked Elastic Search data. 
+
+The main script "inserter.rb" is a script for rapidly inserting test data into Elastic Search. It inserts fake "tweet" type objects into a "twitter" index on a local Elastic Search server at localhost:9200.  It runs in an infinite loop until you stop it. 
+
+The script "retriever.rb" also runs in a constant loop, doing a search on the tweets type in the twitter index for all objects within the date range between 2 and 3 minutes ago and reports the number of objects found.  This can be used to easily approximate the maximum speed obtainable for inserting to a local Elastic Search index for a given AWS box size.
 
 Pre-Requisites
 =======================
 This script has been written with ruby 1.9.3 in mind. It requires two gems: httparty and active_support. Httparty is used to send commands to the Elastic Search server.  Active Support is used for the JSON library in core_ext.
 
-To run the inserter:
+To run the inserter script:
 =======================
 The script "inserter.rb" will create and store objects with a message, username, and postDate to a local Elastic Search index called "twitter" for the type "tweet". The message is composed of 6 to 16 random words and capped at 140 characters.
 
 	cd /path/to/repository/rubberband_flamethrower
 	ruby inserter.rb
 
-There are several random word lists in the "words" folder which come from the SCOWL http://wordlist.sourceforge.net/scowl-readme
+There are several random word lists in the "words" folder which come from SCOWL http://wordlist.sourceforge.net/scowl-readme
 
 To run the retriever:
 =======================
@@ -66,3 +70,11 @@ Running the retriever on a sample period of an hour (and one second) instead of 
 	529981
 
 
+TO DO/Things to Look Into/Notes
+=======================
+ - Does message length varying account for some of the variance in insert speed? How much?
+ - What role does the size of the pool of words used to construct the random sentences play in the time it takes to insert into the index?
+ - What happens when we add more nodes to the Elastic Search cluster?
+ - As the script runs longer and longer on the limited word set does it become increasingly faster or slower at indexing new content? To put it another way, does having a lot that already uses the same words make it faster or does it slow down because it now matches it up to that much more information.
+ - How realistic is it to use Elastic Search nodes in the same manner as MySQL master/slave relationships where all selects are done from other nodes and all inserts on a master? Is this just common sense good practice, why didn't I see this mentioned anywhere?
+ - These scripts need to be run from inside the rubberband_flamethrower directory because the script is using a relative link to the random words files.

@@ -1,6 +1,6 @@
 Rubberband Flamethrower
 =======================
-Rubberband Flamethrower is a collection of scripts for dealing with faked Elastic Search data. The main script "inserter.rb" is a script for rapidly inserting test data into elastic search.  The script "retriever.rb" also runs in a constant loop doing a search on the tweets for all within the date range between 2 and 3 minutes ago and reports the number of objects found.  This can be used to easily approximate the maximum speed obtainable for inserting to a local Elastic Search index for a given AWS box size.
+Rubberband Flamethrower is a collection of scripts for dealing with faked Elastic Search data. The main script "inserter.rb" is a script for rapidly inserting test data into Elastic Search.  The script "retriever.rb" also runs in a constant loop doing a search on the tweets for all within the date range between 2 and 3 minutes ago and reports the number of objects found.  This can be used to easily approximate the maximum speed obtainable for inserting to a local Elastic Search index for a given AWS box size.
 
 Pre-Requisites
 =======================

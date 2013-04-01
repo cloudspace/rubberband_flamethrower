@@ -2,6 +2,10 @@ Rubberband Flamethrower
 =======================
 Rubberband Flamethrower is a collection of scripts for dealing with faked Elastic Search data. The main script "inserter.rb" is a script for rapidly inserting test data into elastic search.  The script "retriever.rb" also runs in a constant loop doing a search on the tweets for all within the date range between 2 and 3 minutes ago and reports the number of objects found.  This can be used to easily approximate the maximum speed obtainable for inserting to a local Elastic Search index for a given AWS box size.
 
+Pre-Requisites
+=======================
+This script has been written with ruby 1.9.3 in mind. It requires two gems: httparty and active_support.
+
 To run the inserter:
 =======================
 The script "inserter.rb" will create and store objects with a message, username, and postDate to a local Elastic Search index called "twitter" for the type "tweet". The message is composed of 6 to 16 random words and capped at 140 characters.

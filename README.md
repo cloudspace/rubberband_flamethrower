@@ -4,7 +4,7 @@ Rubberband Flamethrower is a collection of scripts for dealing with faked Elasti
 
 Pre-Requisites
 =======================
-This script has been written with ruby 1.9.3 in mind. It requires two gems: httparty and active_support.
+This script has been written with ruby 1.9.3 in mind. It requires two gems: httparty and active_support. Httparty is used to send commands to the Elastic Search server.  Active Support is used for it's JSON library in core_ext.
 
 To run the inserter:
 =======================

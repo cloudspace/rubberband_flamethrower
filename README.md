@@ -17,7 +17,9 @@ The script "inserter.rb" will create and store objects with a message, username,
 	cd /path/to/repository/rubberband_flamethrower
 	ruby inserter.rb
 
-There are several random word lists in the "words" folder which come from SCOWL http://wordlist.sourceforge.net/scowl-readme
+There are several word lists in the "words" folder which come from SCOWL http://wordlist.sourceforge.net/scowl-readme
+
+The code uses the combination of the 10, 20, and 35 lists by default.
 
 To run the retriever:
 =======================

@@ -16,7 +16,8 @@ require "httparty"
 require "active_support/core_ext"
 require_relative "models/data_generator.rb"
 
-# set a starting id
+# a unique ID must be provided for each document stored in Elastic Search
+# since we are looping, we set a starting id and it will be incremented in the loop
 id = 2
 
 # initialize the random data generator object

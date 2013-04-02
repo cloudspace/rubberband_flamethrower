@@ -1,45 +1,22 @@
-require 'httparty'
+require "httparty"
 require "active_support/core_ext"
+require_relative "models/data_generator.rb"
 
-#combine several word files into an array of words
-words = []
-word_files = [
-  # "./words/american-words.95",
-  # "./words/american-words.80",
-  # "./words/american-words.70",
-  # "./words/american-words.60",
-  # "./words/american-words.55",
-  # "./words/american-words.50",
-  # "./words/american-words.40",
-  "./words/american-words.35",
-  "./words/american-words.20",
-  "./words/american-words.10"
-  ]
-word_files.each do |word_file|
-  contents = File.read(word_file)
-  words = words + contents.split(/\n/)
-end
-
-# set a starting id
+# set a starting id and initialize the random data generator
 id = 2
+data = DataGenerator.new
 
-#start infinite loop
+# start infinite loop
 while true do  
-  #create a message from between 6 and 16 random words that maxes at 140 characters
-  number_of_words = 6 + rand(10)
-  sentence = (number_of_words.times.map{words.sample}.join(" ")+".")[0,140]
   
-  # create a username that is only letters and numbers
-  username = words.sample.gsub(/[^0-9a-z]/i, '')
+  # generate a bit of random data to insert that approxiamates a tweet
+  insert_data = data.generate_random_insert_data
+  puts insert_data
   
-  #set a timestamp
-  date = Time.now.strftime "%Y%m%dT%H:%M:%S"
-
-  twitter_message = {user: "#{username}", postDate: "#{date}", message: "#{sentence}"}.to_json
-  puts "twitter_message: #{twitter_message}"
-  
-  response = HTTParty.put("http://localhost:9200/twitter/tweet/#{id}", body: twitter_message) 
+  # insert the random data into elastic search index "twitter" as type "tweet"
+  response = HTTParty.put("http://localhost:9200/twitter/tweet/#{id}", body: insert_data) 
   puts response.body
   
+  #increment the insert id
   id = id + 1
 end

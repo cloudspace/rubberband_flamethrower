@@ -6,6 +6,25 @@ http://wordlist.sourceforge.net/scowl-7.1-readme
 
 The SCOWL word lists are used primarily for spellchecking.
 
+I use just the 10, 20, and 35 lists by default.
+
+The following information appears in the scowl-readme file linked above.
+
+And here is a count on the number of in each spelling category
+(american + english spelling category):
+
+  Size   Words       Names    Running Total  %
+   10    4,427          15        4,442     0.7
+   20    8,122           0       12,564     1.9
+   35   37,251         224       50,039     7.7
+   40    6,802         503       57,344     8.8
+   50   24,505      15,455       97,304    14.9
+   55    6,555           0      103,859    15.9
+   60   13,633         775      118,267    18.1
+   70   35,507       7,747      161,521    24.8
+   80  143,791      33,293      338,605    51.9
+   95  227,056      86,814      652,475   100.0
+
 COPYRIGHT, SOURCES, and CREDITS:
 
 The collective work is Copyright 2000-2011 by Kevin Atkinson as well

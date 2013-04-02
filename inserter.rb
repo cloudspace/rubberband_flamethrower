@@ -16,8 +16,10 @@ require "httparty"
 require "active_support/core_ext"
 require_relative "models/data_generator.rb"
 
-# set a starting id and initialize the random data generator
+# set a starting id
 id = 2
+
+# initialize the random data generator object
 data = DataGenerator.new
 
 # start infinite loop
@@ -27,7 +29,7 @@ while true do
   insert_data = data.generate_random_insert_data
   puts insert_data
   
-  # insert the random data into local elastic search index "twitter" as type "tweet"
+  # insert the random data into local elastic search index "twitter" as type "tweet" with set id
   response = HTTParty.put("http://localhost:9200/twitter/tweet/#{id}", body: insert_data) 
   puts response.body
   

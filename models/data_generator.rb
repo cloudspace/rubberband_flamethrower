@@ -1,6 +1,7 @@
 # This class is specially designed to generate random data to be inserted into Elastic Search
 # It creates a JSON object that approaxiamates data like you would fine in a tweet
 # with fields for a message (max 140 characters), username, and post_date.
+# The post_date format is parsable as a date object by default by Elastic Search
 class DataGenerator
   attr_accessor :word_list
   
@@ -31,6 +32,7 @@ class DataGenerator
   end
   
   # create a message from between 6 and 16 random words that maxes at 140 characters and ends with a period
+  # @return [String]
   def random_tweet
     number_of_words = 6 + rand(10)
     ((number_of_words.times.map{word_list.sample}.join(" "))[0,139])+"."
@@ -38,17 +40,20 @@ class DataGenerator
   
   # create a random value to be used as a username
   # the return value is one random word, only letters and numbers allowed
+  # @return [String]
   def random_username
     word_list.sample.gsub(/[^0-9a-z]/i, '')
   end
   
   # create an Elastic Search friendly timestamp for right now
+  # @return [String]
   def current_timestamp
     Time.now.strftime "%Y%m%dT%H:%M:%S"
   end  
   
   # generate a JSON object that contains a message, username, and post_date
   # intended to be passed as insert data to an elastic search server
+  # @return [JSON]
   def generate_random_insert_data
     {message: "#{random_tweet}", username: "#{random_username}", post_date: "#{current_timestamp}"}.to_json
   end

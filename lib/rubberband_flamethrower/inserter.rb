@@ -12,9 +12,7 @@
 # License::   MIT License
 
 
-require "httparty"
-require "active_support/core_ext"
-require_relative "models/data_generator.rb"
+require_relative "data_generator.rb"
 
 # a unique ID must be provided for each document stored in Elastic Search
 # since we are looping, we set a starting id and it will be incremented in the loop

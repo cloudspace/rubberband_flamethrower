@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "rubberband_flamethrower"
   gem.homepage = "http://github.com/imightbeinatree/rubberband_flamethrower"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Rapidly Insert Fake Data into Elastic Search}
+  gem.description = %Q{Use to quickly fill up some indicies in Elastic Search and to retrieve statistics about insertion rates}
   gem.email = "michael@cloudspace.com"
   gem.authors = ["Michael Orr"]
   # dependencies defined in Gemfile
@@ -52,7 +52,7 @@ Rake::RDocTask.new do |rdoc|
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
 
-
+require File.dirname(__FILE__) + "/lib/rubberband_flamethrower"
 namespace :rubberband_flamethrower do
   task :fire do
     RubberbandFlamethrower.start_insert

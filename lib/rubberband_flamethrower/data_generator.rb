@@ -11,23 +11,23 @@ module RubberbandFlamethrower
     # You can uncomment or comment particular files to change the size of the pool of words.
     # Please see the README file in the words folder for more information about the lists.
     WORD_FILES = [
-      # "./words/american-words.95",
-      # "./words/american-words.80",
-      # "./words/american-words.70",
-      # "./words/american-words.60",
-      # "./words/american-words.55",
-      # "./words/american-words.50",
-      # "./words/american-words.40",
-      "./words/american-words.35",
-      "./words/american-words.20",
-      "./words/american-words.10"
+      # "/words/american-words.95",
+      # "/words/american-words.80",
+      # "/words/american-words.70",
+      # "/words/american-words.60",
+      # "/words/american-words.55",
+      # "/words/american-words.50",
+      # "/words/american-words.40",
+      "/words/american-words.35",
+      "/words/american-words.20",
+      "/words/american-words.10"
       ]
 
     # Will initialize the word_list variable with an array of all the words contained in the WORD_FILES array   
     def initialize
       self.word_list = []
       WORD_FILES.each do |word_file|
-        contents = File.read(word_file)
+        contents = File.read(File.dirname(__FILE__)+word_file)
         self.word_list = word_list + contents.split(/\n/)
       end
     end

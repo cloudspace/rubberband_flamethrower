@@ -1,6 +1,8 @@
 module RubberbandFlamethrower
-  def self.start_insert(how_many=50000, starting_id=2)
-    require_relative "rubberband_flamethrower/data_generator.rb"
+  def self.start_insert(how_many=1000, starting_id=2)
+    require "active_support/core_ext"
+    require 'httparty'
+    require File.dirname(__FILE__)+"/rubberband_flamethrower/data_generator.rb"
 
     # a unique ID must be provided for each document stored in Elastic Search
     id = starting_id
@@ -8,7 +10,7 @@ module RubberbandFlamethrower
     # initialize the random data generator object
     data = DataGenerator.new
 
-    how_many.times.do |i|
+    how_many.times do |i|
 
       # generate a piece of random data to insert that approxiamates a tweet
       insert_data = data.generate_random_insert_data

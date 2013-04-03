@@ -54,6 +54,7 @@ end
 
 require File.dirname(__FILE__) + "/lib/rubberband_flamethrower"
 namespace :rubberband_flamethrower do
+  desc "Insert fake data into Elastic Search"
   task :fire do
     RubberbandFlamethrower.start_insert
   end

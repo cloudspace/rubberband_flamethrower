@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "rubberband_flamethrower"
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Michael Orr"]
@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
     "lib/rubberband_flamethrower.rb",
     "lib/rubberband_flamethrower/.DS_Store",
     "lib/rubberband_flamethrower/data_generator.rb",
+    "lib/rubberband_flamethrower/flamethrower.rb",
     "lib/rubberband_flamethrower/inserter.rb",
     "lib/rubberband_flamethrower/retriever.rb",
     "lib/rubberband_flamethrower/words/README",
@@ -39,7 +40,8 @@ Gem::Specification.new do |s|
     "lib/rubberband_flamethrower/words/american-words.60",
     "lib/rubberband_flamethrower/words/american-words.70",
     "lib/rubberband_flamethrower/words/american-words.80",
-    "lib/rubberband_flamethrower/words/american-words.95"
+    "lib/rubberband_flamethrower/words/american-words.95",
+    "rubberband_flamethrower.gemspec"
   ]
   s.homepage = "http://github.com/imightbeinatree/rubberband_flamethrower"
   s.licenses = ["MIT"]

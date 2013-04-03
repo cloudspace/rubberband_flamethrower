@@ -73,7 +73,7 @@ Running the retriever on a sample period of an hour (and one second) instead of 
 	529981
 
 
-== TO DO/Things to Look Into/Notes
+== Things to Look Into Or Do/Notes
  - Does message length varying account for some of the variance in insert speed? How much?
  - What role does the size of the pool of words used to construct the random sentences play in the time it takes to insert into the index?
  - What happens when we add more nodes to the Elastic Search cluster?

@@ -54,8 +54,11 @@ end
 
 require File.dirname(__FILE__) + "/lib/rubberband_flamethrower"
 namespace :rubberband_flamethrower do
-  desc "Insert fake data into Elastic Search"
-  task :fire do
-    RubberbandFlamethrower.send_batch
+  desc "Insert fake data into Elastic Search, use arguments to change defaults"
+  task :fire, :how_many, :starting_id, :server_url, :index, :type do |t, args|
+    args.with_defaults(:how_many => 1000, :starting_id => 1, :server_url => "http://localhost:9200", :index => "twitter", :type => "tweet")
+    RubberbandFlamethrower.send_batch(args[:how_many].to_i, args[:starting_id].to_i, args[:server_url], args[:index], args[:type])
   end
 end
+
+

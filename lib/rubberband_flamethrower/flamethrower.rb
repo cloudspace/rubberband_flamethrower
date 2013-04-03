@@ -1,8 +1,7 @@
 # This class is designed to insert objects created with the DataGenerator class into Elastic Search
 module RubberbandFlamethrower
   class Flamethrower
-
-    def send_batch(how_many, starting_id)
+    def send_batch(how_many, starting_id, server_url, index, type)
       # a unique ID must be provided for each document stored in Elastic Search
       id = starting_id
 
@@ -16,7 +15,7 @@ module RubberbandFlamethrower
         puts insert_data
 
         # insert the random data into local elastic search index "twitter" as type "tweet" with set id
-        response = HTTParty.put("http://localhost:9200/twitter/tweet/#{id}", body: insert_data) 
+        response = HTTParty.put("#{server_url}/#{index}/#{type}/#{id}", body: insert_data) 
         puts response.body
 
         #increment the insert id

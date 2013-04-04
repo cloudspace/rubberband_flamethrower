@@ -22,30 +22,30 @@ You do not need a rails project to use this gem though it is easier to use if yo
 
 install the gem manually
 
-	gem install rubberband_flamethrower
+<tt>gem install rubberband_flamethrower</tt>
 
 == Use
 
 Insert into Elastic Search by using the gem through irb
 
-	require 'rubberband_flamethrower'
-	RubberbandFlamethrower.send_batch
+<tt>require 'rubberband_flamethrower'</tt>
+<tt>RubberbandFlamethrower.send_batch</tt>
 
 The send_batch method can be configured by passing parameters. By default it will insert 5000 documents starting with document ID 1 into an Elastic Search index named "twitter" of type "tweet" into a server node located at http://localhost:9200.
 
 There are 5 parameters accepted by the send_batch method, all of which have a default value if left blank. Here are the parameters in order with their default values: (how_many=5000, starting_id=1, server_url="http://localhost:9200", index="twitter", type="tweet")
 
 To Insert 10,000 instead of 5,000:
-	RubberbandFlamethrower.send_batch(10000)
+<tt>RubberbandFlamethrower.send_batch(10000)</tt>
 
 To Insert 5,000 starting with the ID 5001
-	RubberbandFlamethrower.send_batch(5000,5001)
+<tt>RubberbandFlamethrower.send_batch(5000,5001)</tt>
 
 To Insert 2,000 starting with the ID 1 to a server located at http://es.com:9200
-	RubberbandFlamethrower.send_batch(2000,1,"http://es.com:9200")
+<tt>RubberbandFlamethrower.send_batch(2000,1,"http://es.com:9200")</tt>
 
 To put your documents into an index named "facebook" instead of "twitter" with a type of "message" instead of "tweet"
-	RubberbandFlamethrower.send_batch(5000,1,"http://localhost:9200","facebook","message")
+<tt>RubberbandFlamethrower.send_batch(5000,1,"http://localhost:9200","facebook","message")</tt>
 
 == Contributing to rubberband_flamethrower
  

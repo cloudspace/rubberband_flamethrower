@@ -8,11 +8,17 @@ Rubberband Flamethrower is a gem for inserting faked data into an Elastic Search
 
 You should install and have an Elastic Search node running before trying to use this gem
 
-To download Elastic Search, unarchive, and start a node:
+Download Elastic Search:
 
-	$ curl -k -L -o elasticsearch-0.20.6.tar.gz http://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.20.6.tar.gz
-	$ tar -zxvf elasticsearch-0.20.6.tar.gz
-	$ ./elasticsearch-0.20.6/bin/elasticsearch -f
+<tt>curl -k -L -o elasticsearch-0.20.6.tar.gz http://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.20.6.tar.gz</tt>
+
+Unarchive Elastic Search:
+
+<tt>tar -zxvf elasticsearch-0.20.6.tar.gz</tt>
+
+Start an Elastic Search node:
+
+<tt>./elasticsearch-0.20.6/bin/elasticsearch -f</tt>
 
 === Ruby
 

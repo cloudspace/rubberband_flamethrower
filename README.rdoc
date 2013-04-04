@@ -28,8 +28,13 @@ install the gem manually
 
 Insert into Elastic Search by using the gem through irb
 
-<tt>require 'rubberband_flamethrower'
-RubberbandFlamethrower.send_batch</tt>
+First require the gem:
+
+<tt>require 'rubberband_flamethrower'</tt>
+
+Then you are ready to use it!
+
+<tt>RubberbandFlamethrower.send_batch</tt>
 
 The send_batch method can be configured by passing parameters. By default it will insert 5000 documents starting with document ID 1 into an Elastic Search index named "twitter" of type "tweet" into a server node located at http://localhost:9200.
 

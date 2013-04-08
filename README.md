@@ -1,6 +1,6 @@
 # Rubberband Flamethrower
 
-Rubberband Flamethrower is a gem for inserting faked data into an Elastic Search server. It creates and inserts fake data objects with three fields: message, username, and post_date. Here is an sample generated data object:
+Rubberband Flamethrower is a gem for inserting faked data into an Elastic Search server and providing basic benchmarks. It creates and inserts fake data objects with three fields (message, username, and post_date) and times the process. It inserts in batches of 5,000 objects by default but can be configured to insert any number of objects. Here is an sample generated data object:
 
 	{
 		"message":"utilizing plowed popularizing demeanor anesthesia specializes chaperon pedaling.",

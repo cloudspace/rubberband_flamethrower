@@ -36,7 +36,7 @@ Or if you will be using this as a part of a Rails project, you can add the gem t
 
 ### Command Line Executable
 
-You can run the gem from the command line using the "flamethrower" command.  The command without any arguments will display the help screen:
+Once the gem is installed and you have an Elastic Search server running you are ready to begin inserting fake data. You can run the gem from the command line using the "flamethrower" command.  The command without any arguments will display the help screen:
 
 	flamethrower
 
@@ -65,7 +65,9 @@ To put your documents into an index named "facebook" instead of "twitter" with a
 	flamethrower fire 5000 1 "http://localhost:9200" "facebook" "message"
 
 
-### IRB
+### IRB/Ruby Scripts
+
+Instead of using the gem from the command line you may want to use this gem from inside of a ruby script or through IRB.
 
 First require the gem:
 

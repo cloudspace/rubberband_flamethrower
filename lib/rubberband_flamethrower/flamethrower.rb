@@ -2,6 +2,9 @@
 module RubberbandFlamethrower
   class Flamethrower
     def fire(how_many, starting_id, server_url, index, type)
+
+      $stdout.sync = true
+
       # a unique ID must be provided for each document stored in Elastic Search
       id = starting_id.to_i
 
@@ -17,11 +20,12 @@ module RubberbandFlamethrower
         # insert the random data into local elastic search index "twitter" as type "tweet" with set id
         response = HTTParty.put("#{server_url}/#{index}/#{type}/#{id}", body: insert_data) 
         #puts response.body
+        print "."
 
         #increment the insert id
         id = id + 1
       end
-      puts "Finished Inserting #{how_many} documents into Elastic Search."
+      puts "\n\nFinished Inserting #{how_many} documents into Elastic Search."
     end
     
   end

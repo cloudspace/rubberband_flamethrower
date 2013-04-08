@@ -9,6 +9,7 @@ module RubberbandFlamethrower
     time = Benchmark.measure do
       flamethrower.fire(how_many, starting_id, server_url, index, type)
     end
+    puts "  user       system     total    real"
     puts time
   end
 

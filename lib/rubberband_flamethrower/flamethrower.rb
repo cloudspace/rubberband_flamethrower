@@ -1,14 +1,14 @@
 # This class is designed to insert objects created with the DataGenerator class into Elastic Search
 module RubberbandFlamethrower
   class Flamethrower
-    def send_batch(how_many, starting_id, server_url, index, type)
+    def fire(how_many, starting_id, server_url, index, type)
       # a unique ID must be provided for each document stored in Elastic Search
-      id = starting_id
+      id = starting_id.to_i
 
       # initialize the random data generator object
       data = DataGenerator.new
 
-      how_many.times do |i|
+      how_many.to_i.times do |i|
 
         # generate a piece of random data to insert that approxiamates a tweet
         insert_data = data.generate_random_insert_data

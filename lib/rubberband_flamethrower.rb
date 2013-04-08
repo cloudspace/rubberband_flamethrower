@@ -7,4 +7,9 @@ module RubberbandFlamethrower
     flamethrower = Flamethrower.new
     flamethrower.send_batch(how_many, starting_id, server_url, index, type)
   end
+
+  def self.help
+    puts "Commands Available:\nflamethrower fire #sends a batch to the elastic search server"
+  end
+
 end

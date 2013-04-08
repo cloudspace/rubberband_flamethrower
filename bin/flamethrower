@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+
+lib = File.expand_path(File.dirname(__FILE__) + '/../lib')
+$LOAD_PATH.unshift(lib) if File.directory?(lib) && !$LOAD_PATH.include?(lib)
+
+require 'rubberband_flamethrower'
+
+args = ARGV.dup
+ARGV.clear
+command = args.shift.strip rescue 'help'
+
+case command
+when "fire"
+  RubberbandFlamethrower.send_batch(*args)
+else
+  RubberbandFlamethrower.help
+end
+
+#binary adapted from old heroku source

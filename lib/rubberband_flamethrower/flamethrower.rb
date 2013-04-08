@@ -12,11 +12,11 @@ module RubberbandFlamethrower
 
         # generate a piece of random data to insert that approxiamates a tweet
         insert_data = data.generate_random_insert_data
-        puts insert_data
+        #puts insert_data
 
         # insert the random data into local elastic search index "twitter" as type "tweet" with set id
         response = HTTParty.put("#{server_url}/#{index}/#{type}/#{id}", body: insert_data) 
-        puts response.body
+        #puts response.body
 
         #increment the insert id
         id = id + 1

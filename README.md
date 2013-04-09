@@ -77,7 +77,7 @@ The "auto" argument can be used to repeatedly run the "flamethrower fire" comman
 
 	flamethrower auto
 
-This can be configured much like the above example, though there is one additional parameter, which is supplied first and represents the number of times to run the "flamethrower fire" command. Here are the parameters in order with their default values: (how_many_batches=3, per_batch=500, starting_id=1, server_url="http://localhost:9200", index="twitter", type="tweet", id_overwrite="n")
+This can be configured much like the above example with two additional parameters, which is supplied first and represents the number of times to run the "flamethrower fire" command. Here are the parameters in order with their default values: (how_many_batches=3, per_batch=500, starting_id=1, server_url="http://localhost:9200", index="twitter", type="tweet", id_overwrite="n")
 
 To run the "flamethrower fire" command 5 times in a row instead of the default 3:
 

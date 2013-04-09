@@ -1,4 +1,11 @@
 module RubberbandFlamethrower
+  
+  # Benchmarks a call to the fire method (which inserts a batch of random data into Elastic Search)
+  # @param [Integer] how_many - how many randomly generated data objects to insert
+  # @param [Integer] starting_id - starting id for randomly generated data objects, will increment from this number
+  # @param [String] server_url - url of the Elastic Search server
+  # @param [String] index - name of the Elastic Search index to insert data into
+  # @param [String] type - name of the Elastic Search type to insert data into
   def self.fire(how_many=5000, starting_id=1, server_url="http://localhost:9200", index="twitter", type="tweet")
     require File.dirname(__FILE__)+"/rubberband_flamethrower/flamethrower.rb"
     flamethrower = Flamethrower.new
@@ -10,6 +17,13 @@ module RubberbandFlamethrower
     puts time
   end
 
+  # Benchmarks a series of calls to the fire method (which inserts a batch of random data into Elastic Search)
+  # @param [Integer] how_many_batches - how many batches to run
+  # @param [Integer] per_batch - how many randomly generated data objects to insert
+  # @param [Integer] starting_id - starting id for randomly generated data objects, will increment from this number
+  # @param [String] server_url - url of the Elastic Search server
+  # @param [String] index - name of the Elastic Search index to insert data into
+  # @param [String] type - name of the Elastic Search type to insert data into
   def self.auto(how_many_batches=3, per_batch=5000, starting_id=1, server_url="http://localhost:9200", index="twitter", type="tweet")
     require File.dirname(__FILE__)+"/rubberband_flamethrower/flamethrower.rb"
     flamethrower = Flamethrower.new

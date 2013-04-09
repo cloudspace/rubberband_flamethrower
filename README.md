@@ -1,6 +1,6 @@
 # Rubberband Flamethrower
 
-Rubberband Flamethrower is a gem for inserting faked data into an Elastic Search server and providing basic benchmarks. It creates and inserts fake data objects with three fields (message, username, and post_date) and times the process. It inserts in batches of 5,000 objects by default but can be configured to insert any number of objects. Here is an sample generated data object:
+Rubberband Flamethrower is a gem for inserting faked data into an Elastic Search server and providing basic benchmarks. It creates and inserts fake data objects with three fields (message, username, and post_date) and times the process. It inserts in batches of 500 objects by default but can be configured to insert any number of objects. Here is an sample generated data object:
 
 	{
 		"message":"utilizing plowed popularizing demeanor anesthesia specializes chaperon pedaling.",
@@ -45,14 +45,6 @@ Or if you will be using this as a part of a Rails project, you can add the gem t
 
 Once the gem is installed and you have an Elastic Search server running you are ready to begin inserting fake data. You can run the gem from the command line using the "flamethrower" command.  
 
-#### Help
-
-The command with the argument "help" or without any arguments will display the help screen:
-
-	flamethrower help
-
-	flamethrower
-
 #### Fire
 
 To start a batch insert into the local Elastic Search server you add the argument "fire" to the command:
@@ -61,9 +53,9 @@ To start a batch insert into the local Elastic Search server you add the argumen
 
 By default it will insert 5000 documents starting with document ID 1 into an Elastic Search index named "twitter" of type "tweet" into a server node located at http://localhost:9200.
 
-You can configure what is inserted by passing additional parameters. There are 5 parameters accepted by the `flamethrower fire` command, all of which have a default value if left blank. Here are the parameters in order with their default values: (how_many=5000, starting_id=1, server_url="http://localhost:9200", index="twitter", type="tweet")
+You can configure what is inserted by passing additional parameters. The parameters accepted by the `flamethrower fire` command all have a default value if left blank. Here are the parameters in order with their default values: (how_many=500, starting_id=1, server_url="http://localhost:9200", index="twitter", type="tweet")
 
-To Insert 10,000 instead of 5,000:
+To Insert 10,000 instead of 500:
 
 	flamethrower fire 10000
 
@@ -77,7 +69,7 @@ To Insert 2,000 starting with the ID 1 to a server located at http://es.com:9200
 
 To put your documents into an index named "facebook" instead of "twitter" with a type of "message" instead of "tweet"
 
-	flamethrower fire 5000 1 "http://localhost:9200" "facebook" "message"
+	flamethrower fire 500 1 "http://localhost:9200" "facebook" "message"
 
 #### Auto
 
@@ -91,9 +83,15 @@ To run the "flamethrower fire" command 5 times in a row instead of the default 3
 
 	flamethrower auto 5
 
-To run the "flamethrower  fire" command 5 times, inserting 500 objects each time:
+To run the "flamethrower  fire" command 5 times, inserting 5,000 objects each time:
 
-	flamethrower auto 5 500
+	flamethrower auto 5 5000
+	
+#### Help
+
+The command with the argument "help" or without any arguments will display the help screen:
+
+	flamethrower help
 
 ### IRB/Ruby Scripts
 

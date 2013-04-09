@@ -7,7 +7,7 @@ require 'rubberband_flamethrower'
 
 args = ARGV.dup
 ARGV.clear
-command = args.shift.strip rescue 'help'
+command = args.shift.strip rescue 'auto'
 
 case command
 when "fire"

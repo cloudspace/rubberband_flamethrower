@@ -77,7 +77,7 @@ The "auto" argument can be used to repeatedly run the "flamethrower fire" comman
 
 	flamethrower auto
 
-This can be configured much like the above example, though there is one additional parameter, which is supplied first and represents the number of times to run the "flamethrower fire" command. Here are the parameters in order with their default values: (how_many_batches=3, per_batch=5000, starting_id=1, server_url="http://localhost:9200", index="twitter", type="tweet")
+This can be configured much like the above example, though there is one additional parameter, which is supplied first and represents the number of times to run the "flamethrower fire" command. Here are the parameters in order with their default values: (how_many_batches=3, per_batch=5000, starting_id=1, server_url="http://localhost:9200", index="twitter", type="tweet", id_overwrite="n")
 
 To run the "flamethrower fire" command 5 times in a row instead of the default 3:
 
@@ -86,6 +86,8 @@ To run the "flamethrower fire" command 5 times in a row instead of the default 3
 To run the "flamethrower  fire" command 5 times, inserting 5,000 objects each time:
 
 	flamethrower auto 5 5000
+	
+The id_overwrite parameter determines the ID strategy used for subsequent batches in the auto command. When set to \"n\" (which it is by default) each batch will be writing new data with fresh IDs to the Elastic Search server, simulating a system where data is constantly being inserted and not updated. 5 batches of 500 with an \"n\" would use the IDs 1-2,500. When it is set to \"y\" each batch will simulate overwriting existing data in the Elastic Search server, simulating a system where data is constantly being updated (after the initial batch). 5 batches of 500 with a setting of \"y\" would use the IDs 1-500 on each batch.
 	
 #### Help
 

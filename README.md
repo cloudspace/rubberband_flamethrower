@@ -29,7 +29,7 @@ Start an Elastic Search node:
 
 ### Ruby
 
-You do not need a rails project to use this gem though it is easier to use if you do.  It has been designed with ruby 1.9.1 and above in mind. The sample method of the Array class is used in the code and was not a part of the 1.8.7 release.
+It has been designed with ruby 1.9.1 and above in mind. The sample method of the Array class is used in the code and was not a part of the 1.8.7 release.
 
 ## Installation
 
@@ -43,9 +43,17 @@ Or if you will be using this as a part of a Rails project, you can add the gem t
 
 ### Command Line Executable
 
-Once the gem is installed and you have an Elastic Search server running you are ready to begin inserting fake data. You can run the gem from the command line using the "flamethrower" command.  The command without any arguments will display the help screen:
+Once the gem is installed and you have an Elastic Search server running you are ready to begin inserting fake data. You can run the gem from the command line using the "flamethrower" command.  
+
+#### Help
+
+The command with the argument "help" or without any arguments will display the help screen:
+
+	flamethrower help
 
 	flamethrower
+
+#### Fire
 
 To start a batch insert into the local Elastic Search server you add the argument "fire" to the command:
 
@@ -71,6 +79,21 @@ To put your documents into an index named "facebook" instead of "twitter" with a
 
 	flamethrower fire 5000 1 "http://localhost:9200" "facebook" "message"
 
+#### Auto
+
+The "auto" argument can be used to repeatedly run the "flamethrower fire" command, timing each run.  By default it will run the command 3 times.
+
+	flamethrower auto
+
+This can be configured much like the above example, though there is one additional parameter, which is supplied first and represents the number of times to run the "flamethrower fire" command. Here are the parameters in order with their default values: (how_many_batches=3, per_batch=5000, starting_id=1, server_url="http://localhost:9200", index="twitter", type="tweet")
+
+To run the "flamethrower fire" command 5 times in a row instead of the default 3:
+
+	flamethrower auto 5
+
+To run the "flamethrower  fire" command 5 times, inserting 500 objects each time:
+
+	flamethrower auto 5 500
 
 ### IRB/Ruby Scripts
 

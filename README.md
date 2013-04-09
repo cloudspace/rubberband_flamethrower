@@ -87,7 +87,7 @@ To run the "flamethrower  fire" command 5 times, inserting 5,000 objects each ti
 
 	flamethrower auto 5 5000
 	
-The id_overwrite parameter determines the ID strategy used for subsequent batches in the auto command. When set to \"n\" (which it is by default) each batch will be writing new data with fresh IDs to the Elastic Search server, simulating a system where data is constantly being inserted and not updated. 5 batches of 500 with an \"n\" would use the IDs 1-2,500. When it is set to \"y\" each batch will simulate overwriting existing data in the Elastic Search server, simulating a system where data is constantly being updated (after the initial batch). 5 batches of 500 with a setting of \"y\" would use the IDs 1-500 on each batch.
+The id_overwrite parameter determines the ID strategy used for subsequent batches in the auto command. 	When set to "n" ("n" is the default) each batch will be writing new data with unused IDs to the Elastic Search server, simulating a system where new data is constantly being inserted and not updated. 5 batches of 500 with an "n" would use the IDs 1-2500. When it is set to "y" each batch (after the first) will be overwriting existing data on the Elastic Search server, simulating a system where data is constantly being updated (after the initial batch). 5 batches of 500 with a setting of "y" would use the IDs 1-500 on each batch.
 	
 #### Help
 

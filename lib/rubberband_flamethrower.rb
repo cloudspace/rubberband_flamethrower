@@ -50,21 +50,21 @@ module RubberbandFlamethrower
     puts "and providing basic benchmarks. It creates and inserts fake data objects with three"
     puts "fields (message, username, and post_date) and reports timing information."
     
-    puts "\n\nFlamethrower Commands Available:\n\n"
+    puts "\nFlamethrower Commands Available:\n\n"
     puts "flamethrower fire #benchmark a batch insert of data to an elastic search server"
     puts "flamethrower auto #benchmark a series of batch inserts to an elastic search server"
     puts "flamethrower help #display this help message"
     
-    puts "\n\nThe fire and auto commands can be configured by passing arguments."
+    puts "\nThe fire and auto commands can be configured by passing arguments."
     puts "The parameters accepted by fire and auto all have a default value if left blank."
     
-    puts "\n\n\"fire\" parameters in order with their default values:"
+    puts "\n\"fire\" parameters in order with their default values:"
     puts "(how_many=500, starting_id=1, server_url=http://localhost:9200, index=twitter, type=tweet)"
 
-    puts "\n\n\"auto\" parameters in order with their default values:"
+    puts "\n\"auto\" parameters in order with their default values:"
     puts "(how_many_batches=3, per_batch=500, starting_id=1, server_url=http://localhost:9200, index=twitter, type=tweet, id_overwrite=n)"
     
-    puts "\n\nUsage Examples With Parameters:"
+    puts "\nUsage Examples With Parameters:"
     puts "flamethrower fire 10000 #To Insert 10,000 instead of 500"
     puts "flamethrower fire 5000 5001 #To Insert 5,000 starting with the ID 5001"
     puts "flamethrower fire 2000 1 \"http://es.com:9200\" #Elastic Search Node located at http://es.com:9200"
@@ -72,11 +72,11 @@ module RubberbandFlamethrower
     puts "\t#Insert into an index named \"facebook\" instead of \"twitter\""
     puts "\t#with a type of \"message\" instead of \"tweet\""
     
-    puts "\n\nThe id_overwrite parameter determines the ID strategy used for subsequent batches in the auto command."
-    puts "When set to \"n\" (which it is by default)each batch will be writing new data with fresh IDs to the Elastic"
-    puts "Search server, simulating a system where data is constantly being inserted and not updated. When it is set"
-    puts "to \"y\" each batch will simulate overwriting existing data in the Elastic Search server, simulating a"
-    puts "system where data is constantly being updated (after the initial batch)."
+    puts "\nThe id_overwrite parameter determines the ID strategy used for subsequent batches in the auto command."
+    puts "When set to \"n\" (\"n\" is the default) each batch will be writing new data with unused IDs to the Elastic"
+    puts "Search server, simulating a system where new data is constantly being inserted and not updated. When it is"
+    puts "set to \"y\" each batch (after the first) will be overwriting existing data on the Elastic Search server,"
+    puts "simulating a system where data is constantly being updated (after the initial batch)."
   end
 
 end

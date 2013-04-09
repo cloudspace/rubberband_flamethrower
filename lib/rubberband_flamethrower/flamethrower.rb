@@ -1,4 +1,10 @@
 # This class is designed to insert objects created with the DataGenerator class into Elastic Search
+
+require "active_support/core_ext"
+require 'httparty'
+require "benchmark"
+require File.dirname(__FILE__)+"/data_generator.rb"
+
 module RubberbandFlamethrower
   class Flamethrower
     def fire(how_many, starting_id, server_url, index, type, printing_level=0)

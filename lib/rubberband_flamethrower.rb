@@ -1,9 +1,5 @@
 module RubberbandFlamethrower
   def self.fire(how_many=5000, starting_id=1, server_url="http://localhost:9200", index="twitter", type="tweet")
-    require "active_support/core_ext"
-    require 'httparty'
-    require "benchmark"
-    require File.dirname(__FILE__)+"/rubberband_flamethrower/data_generator.rb"
     require File.dirname(__FILE__)+"/rubberband_flamethrower/flamethrower.rb"
     flamethrower = Flamethrower.new
     time = Benchmark.measure do
@@ -15,10 +11,6 @@ module RubberbandFlamethrower
   end
 
   def self.auto(how_many_batches=3, per_batch=5000, starting_id=1, server_url="http://localhost:9200", index="twitter", type="tweet")
-    require "active_support/core_ext"
-    require 'httparty'
-    require "benchmark"
-    require File.dirname(__FILE__)+"/rubberband_flamethrower/data_generator.rb"
     require File.dirname(__FILE__)+"/rubberband_flamethrower/flamethrower.rb"
     flamethrower = Flamethrower.new
     Benchmark.bm(8) do |x|

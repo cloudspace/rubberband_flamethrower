@@ -43,6 +43,8 @@ module RubberbandFlamethrower
   end
 
   # Displays help menu of the available help menu commands
+  # this is adapted from the file README.md
+  # things updated here should be updated there
   def self.help
     puts "Rubberband Flamethrower is a gem for inserting faked data into an Elastic Search server"
     puts "and providing basic benchmarks. It creates and inserts fake data objects with three"

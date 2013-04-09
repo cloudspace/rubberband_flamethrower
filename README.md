@@ -51,7 +51,7 @@ To start a batch insert into the local Elastic Search server you add the argumen
 
 	flamethrower fire
 
-By default it will insert 5000 documents starting with document ID 1 into an Elastic Search index named "twitter" of type "tweet" into a server node located at http://localhost:9200.
+By default it will insert 500 documents starting with document ID 1 into an Elastic Search index named "twitter" of type "tweet" into a server node located at http://localhost:9200.
 
 You can configure what is inserted by passing additional parameters. The parameters accepted by the `flamethrower fire` command all have a default value if left blank. Here are the parameters in order with their default values: (how_many=500, starting_id=1, server_url="http://localhost:9200", index="twitter", type="tweet")
 
@@ -77,7 +77,7 @@ The "auto" argument can be used to repeatedly run the "flamethrower fire" comman
 
 	flamethrower auto
 
-This can be configured much like the above example, though there is one additional parameter, which is supplied first and represents the number of times to run the "flamethrower fire" command. Here are the parameters in order with their default values: (how_many_batches=3, per_batch=5000, starting_id=1, server_url="http://localhost:9200", index="twitter", type="tweet", id_overwrite="n")
+This can be configured much like the above example, though there is one additional parameter, which is supplied first and represents the number of times to run the "flamethrower fire" command. Here are the parameters in order with their default values: (how_many_batches=3, per_batch=500, starting_id=1, server_url="http://localhost:9200", index="twitter", type="tweet", id_overwrite="n")
 
 To run the "flamethrower fire" command 5 times in a row instead of the default 3:
 
@@ -107,11 +107,11 @@ Then you are ready to use it!
 
 	RubberbandFlamethrower.fire
 
-By default it will insert 5000 documents starting with document ID 1 into an Elastic Search index named "twitter" of type "tweet" into a server node located at http://localhost:9200.
+By default it will insert 500 documents starting with document ID 1 into an Elastic Search index named "twitter" of type "tweet" into a server node located at http://localhost:9200.
 	
-The fire method can be configured by passing parameters to it. There are 5 parameters accepted by the fire method, all of which have a default value if left blank. Here are the parameters in order with their default values: (how_many=5000, starting_id=1, server_url="http://localhost:9200", index="twitter", type="tweet")
+The fire method can be configured by passing parameters to it. There are 5 parameters accepted by the fire method, all of which have a default value if left blank. Here are the parameters in order with their default values: (how_many=500, starting_id=1, server_url="http://localhost:9200", index="twitter", type="tweet")
 
-To Insert 10,000 instead of 5,000:
+To Insert 10,000 instead of 500:
 
 	RubberbandFlamethrower.fire(10000)
 
@@ -125,7 +125,7 @@ To Insert 2,000 starting with the ID 1 to a server located at http://es.com:9200
 
 To put your documents into an index named "facebook" instead of "twitter" with a type of "message" instead of "tweet"
 
-	RubberbandFlamethrower.fire(5000, 1, "http://localhost:9200", "facebook", "message")
+	RubberbandFlamethrower.fire(500, 1, "http://localhost:9200", "facebook", "message")
 
 ## Contributing to rubberband_flamethrower
  

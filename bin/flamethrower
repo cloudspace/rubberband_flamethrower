@@ -12,6 +12,8 @@ command = args.shift.strip rescue 'help'
 case command
 when "fire"
   RubberbandFlamethrower.fire(*args)
+when "auto"
+  RubberbandFlamethrower.auto(*args)
 else
   RubberbandFlamethrower.help
 end

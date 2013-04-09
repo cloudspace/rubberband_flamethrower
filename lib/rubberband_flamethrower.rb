@@ -72,7 +72,7 @@ module RubberbandFlamethrower
     
     puts "\n\nThe id_overwrite parameter determines the ID strategy used for subsequent batches in the auto command."
     puts "When set to \"n\" (which it is by default)each batch will be writing new data with fresh IDs to the Elastic"
-    puts "Search server, simulating a system where data is constantly being inserted and not updated. When it is set
+    puts "Search server, simulating a system where data is constantly being inserted and not updated. When it is set"
     puts "to \"y\" each batch will simulate overwriting existing data in the Elastic Search server, simulating a"
     puts "system where data is constantly being updated (after the initial batch)."
   end

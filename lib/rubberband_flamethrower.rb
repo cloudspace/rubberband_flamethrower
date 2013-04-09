@@ -27,7 +27,7 @@ module RubberbandFlamethrower
   def self.auto(how_many_batches=3, per_batch=500, starting_id=1, server_url="http://localhost:9200", index="twitter", type="tweet", id_overwrite="n")
     require File.dirname(__FILE__)+"/rubberband_flamethrower/flamethrower.rb"
     flamethrower = Flamethrower.new
-    puts "#{per_batch} inserts per set"
+    puts "#{per_batch} documents inserted into Elastic Search per set"
     Benchmark.bm(8) do |x|
       how_many_batches.to_i.times do |i|
         x.report("set #{i+1} of #{how_many_batches}:")   { flamethrower.fire(per_batch, starting_id, server_url, index, type) }

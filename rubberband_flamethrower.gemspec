@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "rubberband_flamethrower"
-  s.version = "0.4.2"
+  s.version = "0.4.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Michael Orr"]
@@ -30,8 +30,6 @@ Gem::Specification.new do |s|
     "lib/rubberband_flamethrower/.DS_Store",
     "lib/rubberband_flamethrower/data_generator.rb",
     "lib/rubberband_flamethrower/flamethrower.rb",
-    "lib/rubberband_flamethrower/inserter.rb",
-    "lib/rubberband_flamethrower/retriever.rb",
     "lib/rubberband_flamethrower/words/README",
     "lib/rubberband_flamethrower/words/american-words.10",
     "lib/rubberband_flamethrower/words/american-words.20",

@@ -27,9 +27,10 @@ module RubberbandFlamethrower
   def self.auto(how_many_batches=3, per_batch=500, starting_id=1, server_url="http://localhost:9200", index="twitter", type="tweet", id_overwrite="n")
     require File.dirname(__FILE__)+"/rubberband_flamethrower/flamethrower.rb"
     flamethrower = Flamethrower.new
+    puts "#{per_batch} inserts per set"
     Benchmark.bm(8) do |x|
       how_many_batches.to_i.times do |i|
-        x.report("set #{i+1}:")   { flamethrower.fire(per_batch, starting_id, server_url, index, type) }
+        x.report("set #{i+1} of #{how_many_batches}:")   { flamethrower.fire(per_batch, starting_id, server_url, index, type) }
         # increment the starting id  by the batch size on each loop unless "id_overwrite" is set to "y"
         # when it is set to "n" (which it is by default)
         # each batch will be writing new data with fresh IDs to the Elastic Search server
@@ -65,7 +66,7 @@ module RubberbandFlamethrower
     puts "flamethrower fire 10000 #To Insert 10,000 instead of 500"
     puts "flamethrower fire 5000 5001 #To Insert 5,000 starting with the ID 5001"
     puts "flamethrower fire 2000 1 \"http://es.com:9200\" #Elastic Search Node located at http://es.com:9200"
-    puts "flamethrower fire 500 1 \"http://localhost:9200\" \"facebook\" \"message\"
+    puts "flamethrower fire 500 1 \"http://localhost:9200\" \"facebook\" \"message\""
     puts "\t#Insert into an index named \"facebook\" instead of \"twitter\""
     puts "\t#with a type of \"message\" instead of \"tweet\""
     

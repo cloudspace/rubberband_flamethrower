@@ -38,9 +38,9 @@ module RubberbandFlamethrower
   # Displays help menu of the available help menu commands
   def self.help
     puts "Flamethrower Commands Available:\n"
-    puts "flamethrower #display this help message"
+    puts "flamethrower help #display this help message"
     puts "flamethrower fire #benchmark a batch insert of data to an elastic search server"
-    puts "flamethrower auto #benchmark a series of batch inserts to an elastic search server""
+    puts "flamethrower auto #benchmark a series of batch inserts to an elastic search server"
   end
 
 end

@@ -12,10 +12,10 @@ command = args.shift.strip rescue 'auto'
 case command
 when "fire"
   RubberbandFlamethrower.fire(*args)
-when "auto"
-  RubberbandFlamethrower.auto(*args)
-else
+when "help"
   RubberbandFlamethrower.help
+else
+  RubberbandFlamethrower.auto(*args)
 end
 
 #binary adapted from old heroku source

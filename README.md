@@ -88,7 +88,29 @@ To run the "flamethrower  fire" command 5 times, inserting 5,000 objects each ti
 	flamethrower auto 5 5000
 	
 The id_overwrite parameter determines the ID strategy used for subsequent batches in the auto command. 	When set to "n" ("n" is the default) each batch will be writing new data with unused IDs to the Elastic Search server, simulating a system where new data is constantly being inserted and not updated. 5 batches of 500 with an "n" would use the IDs 1-2500. When it is set to "y" each batch (after the first) will be overwriting existing data on the Elastic Search server, simulating a system where data is constantly being updated (after the initial batch). 5 batches of 500 with a setting of "y" would use the IDs 1-500 on each batch.
-	
+
+#### Generate Dataset
+
+The "generate_dataset" command can be used to create a set of documents for insertion that can be used over and over. This is useful when you are benchmarking one possible configuration against another and want to use consistent data for each run. The generated file will contain one JSON document per line.
+
+	flamethrower generate_dataset
+
+This will generate a batch of 500 documents and store it in a local file called "dataset". You can configure the size of the dataset by providing an additional parameter to the command.
+
+To generate a dataset of 10,000 documents:
+
+	flamethrower generate_dataset 10000
+
+The dataset will always be written to a file named "dataset". If you want to generate multiple dataset files you will need to rename the first file before generating a second.
+
+#### Fire Dataset
+
+The "fire_dataset" command can be used much like the "fire" command only the data inserted will come from the dataset file rather than being randomly generated.
+
+	flamethrower fire_dataset
+
+The command can be configured much like the "fire" command, but the first parameter accepted is not the number of documents to generate and insert but is instead the filename of the dataset. The parameters in order with their default values: (filename="dataset", starting_id=1, server_url="http://localhost:9200", index="twitter", type="tweet")
+
 #### Help
 
 The command with the argument "help" or without any arguments will display the help screen:

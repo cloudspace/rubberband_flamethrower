@@ -1,6 +1,5 @@
 # This class is designed to insert objects created with the DataGenerator class into Elastic Search
 
-require "active_support/core_ext"
 require 'httparty'
 require "benchmark"
 require File.dirname(__FILE__)+"/data_generator.rb"

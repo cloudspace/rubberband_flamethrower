@@ -2,6 +2,10 @@
 # It creates a JSON object that approaxiamates data like you would fine in a tweet
 # with fields for a message (max 140 characters), username, and post_date.
 # The post_date format is parsable as a date object by default by Elastic Search
+
+require "active_support/core_ext"
+
+
 module RubberbandFlamethrower
   class DataGenerator
     attr_accessor :word_list
@@ -58,6 +62,16 @@ module RubberbandFlamethrower
     def generate_random_insert_data
       {message: "#{random_tweet}", username: "#{random_username}", post_date: "#{current_timestamp}"}.to_json
     end
-  
+ 
+    def generate_dataset(batch_size,starting_id)
+      File.open("dataset", 'w') do |file|
+        batch_size.to_i.times do |i|
+          file.write(generate_random_insert_data+"\n") 
+        end
+      end
+    end
+
+
+ 
   end
 end

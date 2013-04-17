@@ -42,6 +42,17 @@ module RubberbandFlamethrower
     end
   end
 
+  def self.generate_dataset(batch_size=500, starting_id=1)
+    require File.dirname(__FILE__)+"/rubberband_flamethrower/data_generator.rb"
+    data = DataGenerator.new
+    data.generate_dataset(batch_size,starting_id)
+  end
+  
+  def self.fire_dataset
+  end
+
+
+
   # Displays help menu of the available help menu commands
   # this is adapted from the file README.md
   # things updated here should be updated there

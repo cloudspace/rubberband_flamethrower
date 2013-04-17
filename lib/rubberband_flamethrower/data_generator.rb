@@ -63,7 +63,7 @@ module RubberbandFlamethrower
       {message: "#{random_tweet}", username: "#{random_username}", post_date: "#{current_timestamp}"}.to_json
     end
  
-    def generate_dataset(batch_size,starting_id)
+    def generate_dataset(batch_size)
       File.open("dataset", 'w') do |file|
         batch_size.to_i.times do |i|
           file.write(generate_random_insert_data+"\n") 

@@ -42,13 +42,22 @@ module RubberbandFlamethrower
     end
   end
 
-  def self.generate_dataset(batch_size=500, starting_id=1)
+  def self.generate_dataset(batch_size=500)
     require File.dirname(__FILE__)+"/rubberband_flamethrower/data_generator.rb"
     data = DataGenerator.new
-    data.generate_dataset(batch_size,starting_id)
+    data.generate_dataset(batch_size)
   end
   
-  def self.fire_dataset
+  def self.fire_dataset(filename="dataset", starting_id=1, server_url="http://localhost:9200", index="twitter", type="tweet")
+    require File.dirname(__FILE__)+"/rubberband_flamethrower/flamethrower.rb"
+    flamethrower = Flamethrower.new
+    time = Benchmark.measure do
+      flamethrower.fire_dataset(filename, starting_id, server_url, index, type, 1)
+    end
+    puts "\nFinished Inserting Dataset (#{filename}) into Elastic Search."
+    puts "  user       system     total    real"
+    puts time
+
   end
 
 

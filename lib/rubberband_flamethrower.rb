@@ -48,7 +48,7 @@ module RubberbandFlamethrower
     data.generate_dataset(batch_size)
   end
   
-  def self.fire_dataset(filename="dataset", starting_id=1, server_url="http://localhost:9200", index="twitter", type="tweet")
+  def self.load_dataset(filename="dataset", starting_id=1, server_url="http://localhost:9200", index="twitter", type="tweet")
     require File.dirname(__FILE__)+"/rubberband_flamethrower/flamethrower.rb"
     flamethrower = Flamethrower.new
     time = Benchmark.measure do

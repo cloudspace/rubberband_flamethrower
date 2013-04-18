@@ -103,11 +103,11 @@ To generate a dataset of 10,000 documents:
 
 The dataset will always be written to a file named "dataset". If you want to generate multiple dataset files you will need to rename the first file before generating a second.
 
-#### Fire Dataset
+#### Load Dataset
 
-The "fire_dataset" command can be used much like the "fire" command only the data inserted will come from the dataset file rather than being randomly generated.
+The "load_dataset" command can be used much like the "fire" command only the data inserted will come from the dataset file rather than being randomly generated. You can create your own dataset file if you would like.
 
-	flamethrower fire_dataset
+	flamethrower load_dataset
 
 The command can be configured much like the "fire" command, but the first parameter accepted is not the number of documents to generate and insert but is instead the filename of the dataset. The parameters in order with their default values: (filename="dataset", starting_id=1, server_url="http://localhost:9200", index="twitter", type="tweet")
 
@@ -158,7 +158,6 @@ To put your documents into an index named "facebook" instead of "twitter" with a
 * Commit and push until you are happy with your contribution.
 * Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
 * Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
-
 ## Copyright
 
 Copyright (c) 2013 Michael Orr. See LICENSE.txt for

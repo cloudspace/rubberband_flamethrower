@@ -15,7 +15,7 @@ when "fire"
 when "generate_dataset"
   RubberbandFlamethrower.generate_dataset(*args)
 when "fire_dataset"
-  RubberbandFlamethrower.fire_dataset(*args)
+  RubberbandFlamethrower.load_dataset(*args)
 when "help"
   RubberbandFlamethrower.help
 else

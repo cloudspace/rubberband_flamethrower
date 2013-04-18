@@ -48,12 +48,12 @@ module RubberbandFlamethrower
       end
     end
 
-    def fire_dataset(filename, starting_id, server_url, index, type, printing_level=0)
+    def load_dataset(filename, starting_id, server_url, index, type, printing_level=0)
       # this will constantly flush the printing to the display so the progress dots appear for each insert
       ($stdout.sync = true) if printing_level == 1
       # a unique ID must be provided for each document stored in Elastic Search
       id = starting_id.to_i
-      # loop through lines in the file and insert each
+      # loop through lines in the file and insert each line, each line is a document from the data generator
       IO.foreach(filename) do |line|
         (puts insert_data) if printing_level == 2
         response = HTTParty.put("#{server_url}/#{index}/#{type}/#{id}", body: line) 

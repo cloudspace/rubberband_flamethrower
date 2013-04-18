@@ -52,7 +52,7 @@ module RubberbandFlamethrower
     require File.dirname(__FILE__)+"/rubberband_flamethrower/flamethrower.rb"
     flamethrower = Flamethrower.new
     time = Benchmark.measure do
-      flamethrower.fire_dataset(filename, starting_id, server_url, index, type, 1)
+      flamethrower.load_dataset(filename, starting_id, server_url, index, type, 1)
     end
     puts "\nFinished Inserting Dataset (#{filename}) into Elastic Search."
     puts "  user       system     total    real"

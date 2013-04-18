@@ -42,10 +42,10 @@ module RubberbandFlamethrower
     end
   end
 
-  def self.generate_dataset(batch_size=500)
+  def self.generate_dataset(batch_size=500, filename="dataset")
     require File.dirname(__FILE__)+"/rubberband_flamethrower/data_generator.rb"
     data = DataGenerator.new
-    data.generate_dataset(batch_size)
+    data.generate_dataset(batch_size, filename)
   end
   
   def self.load_dataset(filename="dataset", starting_id=1, server_url="http://localhost:9200", index="twitter", type="tweet")

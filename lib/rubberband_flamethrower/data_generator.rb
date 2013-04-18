@@ -42,6 +42,10 @@ module RubberbandFlamethrower
       number_of_words = 6 + rand(10)
       ((number_of_words.times.map{word_list.sample}.join(" "))[0,139])+"."
     end
+
+    def random_message(num_words)
+      num_words.times.map{word_list.sample}.join(" ")
+    end 
   
     # create a random value to be used as a username
     # the return value is one random word, only letters and numbers allowed
@@ -59,14 +63,15 @@ module RubberbandFlamethrower
     # generate a JSON object that contains a message, username, and post_date
     # intended to be passed as insert data to an elastic search server
     # @return [JSON]
-    def generate_random_insert_data
-      {message: "#{random_tweet}", username: "#{random_username}", post_date: "#{current_timestamp}"}.to_json
+    def generate_random_insert_data(num_words)
+      (num_words = 6 + rand(10)) if num_words.nil? || num_words.empty?
+      {message: "#{random_message(num_words.to_i)}", username: "#{random_username}", post_date: "#{current_timestamp}"}.to_json
     end
  
-    def generate_dataset(batch_size, filename)
+    def generate_dataset(batch_size, filename, num_words=nil)
       File.open(filename, 'w') do |file|
         batch_size.to_i.times do |i|
-          file.write(generate_random_insert_data+"\n") 
+          file.write(generate_random_insert_data(num_words)+"\n") 
         end
       end
     end

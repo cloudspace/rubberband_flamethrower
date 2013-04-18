@@ -55,7 +55,7 @@ module RubberbandFlamethrower
       id = starting_id.to_i
       # loop through lines in the file and insert each line, each line is a document from the data generator
       IO.foreach(filename) do |line|
-        unless line.blank?
+        unless line.empty?
           (puts insert_data) if printing_level == 2
           response = HTTParty.put("#{server_url}/#{index}/#{type}/#{id}", body: line) 
           (puts response.body) if printing_level == 2

@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "rubberband_flamethrower"
-  s.version = "0.5.1"
+  s.version = "0.5.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Michael Orr"]
-  s.date = "2013-04-18"
+  s.date = "2013-05-24"
   s.description = "Use to quickly fill up some indicies in Elastic Search and to retrieve statistics about insertion rates"
   s.email = "michael@cloudspace.com"
   s.executables = ["flamethrower"]
@@ -46,7 +46,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/cloudspace/rubberband_flamethrower"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.11"
+  s.rubygems_version = "1.8.24"
   s.summary = "Rapidly Insert Fake Data into Elastic Search"
 
   if s.respond_to? :specification_version then

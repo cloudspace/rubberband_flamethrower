@@ -43,7 +43,7 @@ Gem::Specification.new do |s|
     "lib/rubberband_flamethrower/words/american-words.95",
     "rubberband_flamethrower.gemspec"
   ]
-  s.homepage = "http://github.com/imightbeinatree/rubberband_flamethrower"
+  s.homepage = "http://github.com/cloudspace/rubberband_flamethrower"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.11"

@@ -15,7 +15,7 @@ require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "rubberband_flamethrower"
-  gem.homepage = "http://github.com/imightbeinatree/rubberband_flamethrower"
+  gem.homepage = "http://github.com/cloudspace/rubberband_flamethrower"
   gem.license = "MIT"
   gem.summary = %Q{Rapidly Insert Fake Data into Elastic Search}
   gem.description = %Q{Use to quickly fill up some indicies in Elastic Search and to retrieve statistics about insertion rates}

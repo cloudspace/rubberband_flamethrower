@@ -63,7 +63,7 @@ module RubberbandFlamethrower
     # generate a JSON object that contains a message, username, and post_date
     # intended to be passed as insert data to an elastic search server
     # @return [JSON]
-    def generate_random_insert_data(num_words)
+    def generate_random_insert_data(num_words=nil)
       (num_words = 6 + rand(10)) if num_words.nil? || num_words.empty?
       {message: "#{random_message(num_words.to_i)}", username: "#{random_username}", post_date: "#{current_timestamp}"}.to_json
     end

@@ -165,3 +165,4 @@ To put your documents into an index named "facebook" instead of "twitter" with a
 Copyright (c) 2013 Michael Orr. See LICENSE.txt for
 further details.
 
+[![Code Climate](https://codeclimate.com/github/cloudspace/rubberband_flamethrower/badges/gpa.svg)](https://codeclimate.com/github/cloudspace/rubberband_flamethrower)

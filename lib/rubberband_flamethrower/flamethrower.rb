@@ -39,7 +39,7 @@ module RubberbandFlamethrower
         (puts insert_data) if printing_level == 2
 
         # insert the random data into local elastic search index "twitter" as type "tweet" with set id
-        response = HTTParty.put("#{server_url}/#{index}/#{type}/#{id}", body: insert_data) 
+        response = httparty_put("#{server_url}/#{index}/#{type}/#{id}", insert_data)
         (puts response.body) if printing_level == 2
         (print ".") if printing_level == 1
 
@@ -57,12 +57,16 @@ module RubberbandFlamethrower
       IO.foreach(filename) do |line|
         unless line.empty?
           (puts insert_data) if printing_level == 2
-          response = HTTParty.put("#{server_url}/#{index}/#{type}/#{id}", body: line) 
+          response = httparty_put("#{server_url}/#{index}/#{type}/#{id}", line)
           (puts response.body) if printing_level == 2
           (print ".") if printing_level == 1
           id = id + 1
         end
       end
+    end
+    
+    def httparty_put(url, body)
+      HTTParty.put(url, body: body)
     end
 
 
